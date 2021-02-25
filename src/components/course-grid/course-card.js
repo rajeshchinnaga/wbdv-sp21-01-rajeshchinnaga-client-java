@@ -10,6 +10,7 @@ import h from "../../images/htmlcss.png";
 import n from "../../images/node.png";
 import r from "../../images/react.png";
 import m from "../../images/mysql.png";
+import reactimage from "../../images/react.webp"
 import CourseGridComponent from "../../testing/CourseGridComponent";
 const CourseCard = ({
                         deleteCourse,
@@ -36,7 +37,7 @@ const CourseCard = ({
     return(
         <div className="margin-body col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <img className="card-img"
-                 src="https://www.valuecoders.com/blog/wp-content/uploads/2016/08/react.png"
+                 src={reactimage}
                  alt="..."/>
             <div className="card-body">
                 <h5 className="card-title">{course.title}</h5>
