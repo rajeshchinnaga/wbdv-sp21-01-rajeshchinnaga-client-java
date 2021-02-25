@@ -10,7 +10,7 @@ class CourseTable extends React.Component{
     render() {
         return(
             <div className="container">
-                {/*<button onClick={this.addCourse}>Add Course</button>*/}
+
                 <table className="table second-div-padding">
                     <thead>
                     <tr>

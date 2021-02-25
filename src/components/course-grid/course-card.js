@@ -35,9 +35,6 @@ const CourseCard = ({
     ]
     return(
         <div className="margin-body col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            {/*<div className="card col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">*/}
-            {/*<div className="container">*/}
-            {/*<div className="border">*/}
             <img className="card-img"
                  src="https://www.valuecoders.com/blog/wp-content/uploads/2016/08/react.png"
                  alt="..."/>
@@ -70,7 +67,6 @@ const CourseCard = ({
                 <i onClick={() => deleteCourse(course)}
                    className="trash-on-image mt-2 fas fa-trash"></i>
             }
-            {/*</div>*/}
         </div>
     )
 }

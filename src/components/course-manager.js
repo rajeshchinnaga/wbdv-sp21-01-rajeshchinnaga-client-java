@@ -16,16 +16,14 @@ export default class CourseManager extends React.Component{
         findAllCourses()
             .then(courses => this.setState({courses:courses}))
     }
-//
     addCourse = () => {
 
         const newCourse = {
             title: this.state.title,
             ownedBy: "me",
-            lastModified: new Date().getUTCFullYear()
+            lastModified: (new Date()).toDateString()
         }
-//         // alert('add course')
-//
+
         courseService.createCourse(newCourse)
             .then(actualCourse => {
                     this.state.courses.push(actualCourse)
@@ -77,7 +75,6 @@ export default class CourseManager extends React.Component{
                                type="text"
                                className="form-control
                                search-color"
-                            // placeholder="New Course Title"
                                onChange={(e) => {
                                    const newTitle = e.target.value
                                    this.setState({title:newTitle})
@@ -85,20 +82,17 @@ export default class CourseManager extends React.Component{
                                placeholder="New Course Title"/>
                     </div>
                     <div onClick={this.addCourse} className="btn col-2 col-sm-3 col-md-1">
-                        <i className="fa fa-plus-circle fa-2x float-right"></i>
+                        <i style={{color:"#3D94F6"}} className="fas fa-plus-square fa-2x float-right"></i>
+
                     </div>
                     <div className="col-md-1"></div>
                 </div>
-                {/*<CourseTable courses = {this.state.courses}> </CourseTable>*/}
-                {/*<CourseGrid/>*/}
-                {/*<Route path="/courses/grid" component={CourseGrid}/>*/}
                 <Route path="/courses/grid" exact={true}>
                     <CourseGrid courses={this.state.courses}
                                 createCourse={this.addCourse}
                                 deleteCourse={this.deleteCourse}
                                 updateCourse={this.updateCourse}/>
                 </Route>
-                {/*<Route path="/courses/table" component={CourseTable}/>*/}
                 <Route path="/courses/table" exact={true}>
                     <CourseTable courses={this.state.courses}
                                  createCourse={this.addCourse}
@@ -106,7 +100,7 @@ export default class CourseManager extends React.Component{
                                  updateCourse={this.updateCourse}/>
                 </Route>
                 <footer id ="footer">
-                    <em onClick={this.addCourse} id="footerIcon" className="fa fa-plus-circle fa-3x color-red"></em>
+                    <em onClick={this.addCourse} id="footerIcon" className="fa fa-plus-circle fa-3x" style={{color:"#3D94F6"}}></em>
                 </footer>
             </div>
         )

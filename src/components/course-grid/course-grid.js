@@ -27,13 +27,9 @@ const CourseGrid = ({courses,deleteCourse,updateCourse}) => {
                         <Link to="#">
                             <i className="fa fa-folder fa-2x"/>
                         </Link>
-                        {/*</th>*/}
-                        {/*<th>*/}
                         <Link to="#">
                             <i className="ml-2 fa fa-sort-alpha-up-alt fa-2x"/>
                         </Link>
-                        {/*</th>*/}
-                        {/*<th>*/}
                         <Link to="/courses/table">
                             <i className="ml-2 fa fa-list fa-2x"></i>
                         </Link>
