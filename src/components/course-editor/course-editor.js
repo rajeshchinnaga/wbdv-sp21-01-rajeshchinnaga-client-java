@@ -7,7 +7,7 @@ const CourseEditor = ({history}) => {
             <div className="bg-dark text-light">
                 <ul className="m-0 p-0">
                     <ul className="nav nav-tabs" role="tablist">
-                        <li><a className="btn btn-dark" href="#"><i className="fas fa-times-circle"></i></a></li>
+                        <li><a className="btn btn-dark" href="#"><i onClick={() => history.goBack()} className="fas fa-times-circle"></i></a></li>
                         <li><a className="btn btn-dark" href="#"> CS5610 - Web Dev</a></li>
                         <li><a className="btn btn-dark" href="#">Home</a></li>
                         <li><a className="btn btn-dark" href="#">Build</a></li>
