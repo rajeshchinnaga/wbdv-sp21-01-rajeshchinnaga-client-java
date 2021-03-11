@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {useParams} from "react-router-dom";
 import moduleService from "../../services/module-service"
 import EditableItem from "../editable-item";
+import './course-editor.css';
 
 const ModuleList = (
     {
@@ -23,7 +24,7 @@ const ModuleList = (
             <h3>Modules</h3>
             <ul className="list-group" >
                 {myModules.map(module =>
-                    <li className= {`list-group-item ${module._id === moduleId ? 'active': ""}`}
+                    <li className= "nav-item"
                         key={`${module._id}`}>
                         <EditableItem
                             to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
@@ -34,7 +35,7 @@ const ModuleList = (
                 )}
                 <li className="list-group-item">
                     <i onClick={() => createModule(courseId)}
-                       className="fas fa-plus fa-2x text-dark"></i>
+                       className="plus-btn fa fa-plus fa-2x text-dark"></i>
                 </li>
             </ul>
         </div>
