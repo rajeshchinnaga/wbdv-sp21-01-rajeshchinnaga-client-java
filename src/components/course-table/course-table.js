@@ -1,5 +1,5 @@
 import React from "react";
-import CourseRow from "./course-row";
+import CourseRow from './course-row';
 import {BrowserRouter,Route,Link} from "react-router-dom";
 import CourseGrid from "../course-grid/course-grid";
 class CourseTable extends React.Component{

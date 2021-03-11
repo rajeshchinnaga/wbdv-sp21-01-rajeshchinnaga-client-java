@@ -7,9 +7,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CourseManager from "./components/course-manager";
+import CounterUsingReact from "./components/counter/react-state/counter-react";
+import CounterUsingRedux from "./components/counter/redux-state/counter-redux";
 
 ReactDOM.render(
-    <App />,
+    < App/>,
     document.getElementById('root')
 );
 

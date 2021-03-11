@@ -23,7 +23,8 @@ const CourseRow = ({deleteCourse,
         <tr>
             <td>
                 {   !editing &&
-                <Link to="/editor">
+                <Link to={`/courses/table/edit/${course._id}`}>
+                    <i className="fas fa-file-alt"></i>
                     {course.title}
                 </Link>
                 }
@@ -37,9 +38,8 @@ const CourseRow = ({deleteCourse,
             </td>
             <td className="d-none d-md-table-cell">{course.ownedBy}</td>
             <td className="d-none d-lg-table-cell">{course.lastModified}</td>
-            <td></td>
-            <td></td>
             <td>
+                {/*<i className="fa fa-trash"></i>*/}
                 {
                     !editing &&
                     <i onClick={() => setEditing(true)}
@@ -49,12 +49,12 @@ const CourseRow = ({deleteCourse,
                     editing &&
                     <i onClick={() => saveTitle()
                     }
-                       className="btn fas fa-check"></i>
+                       className="btn fas fa-check" style={{color:"green"}}></i>
                 }
                 {
                     editing &&
                     <i onClick={() => deleteCourse(course)}
-                       className="btn fas fa-trash"></i>
+                       className="btn fas fa-trash" style={{color:"red"}}></i>
                 }
             </td>
         </tr>
