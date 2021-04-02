@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
-import widgetService from "../../services/widget-service";
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
+import widgetService,{findWidgetsForTopic} from "../../services/widget-service";
 import {useParams} from "react-router-dom";
 // import topicService from "../../services/topic-service";
 import {connect} from "react-redux";
@@ -32,12 +34,24 @@ const WidgetList = ({
         <div>
             <i onClick={() => createWidgetForTopic(topicId, lessonId, moduleId)}
                className="fas fa-plus fa-2x float-right"></i>
-            <h2>Widget List ({widgets.length}
-                )</h2>
+            <h2>Widget List ({widgets.length})</h2>
             <ul className="list-group">
                 {
                     widgets.map(widget =>
                         <li className="list-group-item" key={widget.id}>
+
+                            {
+                                widget.type === "LIST" &&
+                                <ListWidget
+                                    editing={editingWidget.id === widget.id}
+                                    widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
+                            }
+                            {
+                                widget.type === "IMAGE" &&
+                                <ImageWidget
+                                    editing={editingWidget.id === widget.id}
+                                    widget={widget} updateWidget={updateWidget} deleteWidget={deleteWidget}/>
+                            }
 
                             {
                                 widget.type === "HEADING" &&

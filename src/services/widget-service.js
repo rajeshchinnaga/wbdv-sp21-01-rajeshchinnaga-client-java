@@ -1,5 +1,5 @@
-const WIDGET_URL = "https://wbdv-sp21-01-rajeshchinnaga-ja.herokuapp.com/api";
-
+//const WIDGET_URL = "https://wbdv-sp21-01-rajeshchinnaga-ja.herokuapp.com/api";
+const WIDGET_URL = "http://localhost:8080/api"
 
 export const createWidget = (tid, widget) => fetch(`${WIDGET_URL}/topics/${tid}/widgets`, {
     method: "POST",
@@ -10,9 +10,9 @@ export const createWidget = (tid, widget) => fetch(`${WIDGET_URL}/topics/${tid}/
 export const findWidgetsForTopic = (tid) => fetch(`${WIDGET_URL}/topics/${tid}/widgets`)
     .then(response => response.json())
 
-// export const findAllWidgets = () => {}
+export const findAllWidgets = () => {}
 
-// export const findWidgetById = (wid) => {}
+export const findWidgetById = (wid) => {}
 
 export const updateWidget = (wid, widget) => fetch(`${WIDGET_URL}/widgets/${wid}`, {
         method: "PUT",
@@ -27,8 +27,8 @@ export const deleteWidget = (wid) => fetch(`${WIDGET_URL}/widgets/${wid}`,
 const widgetService = {
     createWidget,
     findWidgetsForTopic,
-    // findAllWidgets,
-    // findWidgetById,
+    findAllWidgets,
+    findWidgetById,
     updateWidget,
     deleteWidget
 }
