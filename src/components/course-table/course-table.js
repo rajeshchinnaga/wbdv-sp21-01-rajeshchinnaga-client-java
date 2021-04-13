@@ -17,6 +17,7 @@ class CourseTable extends React.Component{
                         <th>Title</th>
                         <th className="d-none d-md-table-cell">Owned by</th>
                         <th className="d-none d-lg-table-cell">Modified Date</th>
+                        <th className="d-none d-lg-table-cell">Quizzes</th>
                         <th>
                             <a className="ml-2" href="#">
                             <i className="fa fa-folder fa-1x"/>
