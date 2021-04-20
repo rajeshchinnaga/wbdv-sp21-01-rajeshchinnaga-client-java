@@ -49,6 +49,9 @@ const Quiz = () => {
                     <div>
 
                         <h2>Score: {attempt.score}</h2>
+                        <h2>
+                            Attempt Number: {attempt._id}
+                        </h2>
                     </div>
                 }
             </div>
