@@ -1,51 +1,32 @@
-import React, {useState, useEffect} from "react";
-import {Link, useParams} from "react-router-dom";
-import CourseRow from "../course-table/course-row";
-import quizService from "../../services/quiz-service";
+import React, {useState, useEffect} from 'react';
+import QuizzesService from '../../services/quiz-service';
+import {Link, useParams} from 'react-router-dom';
 
 const QuizzesList = () => {
-    const {courseId} = useParams()
-    const [quizzes, setQuizzes] = useState([])
+    const {courseId} = useParams();
+    const [quizzes, setQuizzes] = useState([]);
     useEffect(() => {
-        // TODO: move this to a service file
-        // fetch("http://localhost:4000/api/quizzes")
-        //     .then(response => response.json())
-        //     .then((quizzes) => {
-        //         setQuizzes(quizzes)
-        //     })
-        quizService.findAllQuizzes().then((quizzes) => {setQuizzes(quizzes)})
+        QuizzesService.findAllQuizzes()
+            .then(res => setQuizzes(res));
     }, [])
-    return(
+    return (
         <div>
-            <h2>Quizzes ({quizzes.length})</h2>
-            <ul>
+            <div className='row'>
+                <Link to='/courses/table' className='fas fa-times'/>
+                <h1>Quizzes</h1>
+            </div>
+            <ul className='list-group'>
                 {
-                    quizzes.map((quiz) => {
-                        return(
-                            <div className="container-fluid">
-                                <table className='table'>
-                                    <tbody>
-                                    <tr>
-                                        <td >
-                                            <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>
-                                                {quiz.title}
-                                            </Link>
-                                        </td>
-                                        <td >
-                                            <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>
-                                                <i className="btn btn-primary">Start</i>
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        )
-                    })
+                    quizzes.map(quiz => <li className='list-group-item' key={quiz._id}>
+                        <Link className='btn' to={`/courses/${courseId}/quizzes/${quiz._id}`}>{quiz.title}</Link>
+                        <Link to={`/courses/${courseId}/quizzes/${quiz._id}`} className='btn btn-primary float-right'>Start</Link>
+                        <Link className='btn btn-secondary float-right'
+                              to={`/courses/${courseId}/quizzes/${quiz._id}/attempts`}>Attempts Histories</Link>
+                    </li>)
                 }
             </ul>
         </div>
     );
 }
 
-export default QuizzesList;
+export default QuizzesList

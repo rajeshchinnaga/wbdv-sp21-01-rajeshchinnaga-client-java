@@ -8,12 +8,17 @@ import CourseTable from "./components/course-table/course-table";
 import React from "react";
 import Quiz from "./components/quizzes/quiz";
 import QuizzesList from "./components/quizzes/quizzes-list";
+import QuizAttempts from "./components/quizzes/quiz-attempts";
+
 function App() {
     return (
         <BrowserRouter>
             <Route path="/courses" component={CourseManager}/>
             <Route path="/courses/:courseId/quizzes/:quizId" component={Quiz}/>
             <Route path ="/courses/:courseId/quizzes" exact={true}  component={QuizzesList}/>
+            <Route path='/courses/:courseId/quizzes/:quizId/attempts' exact={true}>
+                <QuizAttempts/>
+            </Route>
             <Route path="/editor" render={(props) =>
                 <CourseEditor {...props}/>}/>
         </BrowserRouter>
